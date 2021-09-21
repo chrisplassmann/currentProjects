@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>
+
+  </title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <script>
+    const names = ['wes', 'kait', 'snickers'];
+
+    console.log(names[0]);
+    console.log(names.length);
+    console.log(names[names.length - 1]);
+
+    names.push('lux');
+    console.log(names);
+    const names2 = [...names, 'lux'];
+    names.unshift('poppy');
+    console.log(names);
+    const names3 = ['poppy', ...names];
+    console.log(names3);
+
+    const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
+    const newBikes = [...bikes.slice(0, 2), 'benotto', ...bikes.slice(2)];
+
+    const newBikes2 = [...newBikes.slice(0, 3), ...newBikes.slice(4)];
+    console.log(newBikes2);
+
+    const comments = [
+      { text: 'Cool Beans', id: 123 },
+      { text: 'Cool Beans', id: 133 },
+      { text: 'Cool Beans', id: 233 },
+      { text: 'Cool Beans', id: 333 },
+      { text: 'Cool Beans', id: 433 },
+    ];
+
+    function deleteComment(id, comments) {
+      // stuff
+      const commentIndex = comments.findIndex((comment) => comment.id === id);
+      return [
+        ...comments.slice(0, commentIndex),
+        ...comments.slice(commentIndex + 1),
+      ];
+    }
+
+    const kaitIndex = names.findIndex((name) => name === 'kait');
+    const newNamesWithoutKait = [
+      ...names.slice(0, kaitIndex),
+      ...names.slice(kaitIndex + 1),
+    ];
+
+    console.log(newNamesWithoutKait);
+  </script>
+</body>
+
+</html>

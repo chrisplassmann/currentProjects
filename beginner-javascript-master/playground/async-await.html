@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Async Await</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <script>
+    function wait(ms = 0) {
+      return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+      });
+    }
+
+    function makePizza(toppings = []) {
+      return new Promise(function (resolve, reject) {
+        // reject if pineapple lmao
+        if (toppings.includes('pineapple')) {
+          reject('Wes really hates pineapple on pizza, doesnt he?');
+        }
+        const amountOfTimeToBake = 500 + toppings.length * 200;
+        // wait for pizza to cook
+        setTimeout(function () {
+          resolve(`Here is your pizza with the toppings ${toppings.join(', ')}`);
+        }, amountOfTimeToBake);
+      });
+    }
+
+    // go();
+
+    async function makeDinner() {
+      const pizzaPromise1 = makePizza(['pepperoni']);
+      const pizzaPromise2 = makePizza(['mushroom']);
+      const [pep, mush] = await Promise.all([pizzaPromise1, pizzaPromise2]);
+      console.log(pep, mush);
+    }
+
+    makeDinner();
+
+    // async function fd() { }
+
+    // const arrowFn = async () => { };
+
+    // window.addEventListener('click', async function () { });
+
+    // const person = {
+    //  async sayHi() { },
+    //  async sayHello() { },
+    //  sayHey: async () => { },
+    // };
+  </script>
+</body>
+
+</html>

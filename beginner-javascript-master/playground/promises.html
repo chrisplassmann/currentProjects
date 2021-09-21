@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Promises</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <script>
+    function makePizza(toppings) {
+      return new Promise(function (resolve, reject) {
+        // reject if pineapple lmao
+        if (toppings.includes('pineapple')) {
+          reject('Wes really hates pineapple on pizza, doesnt he?');
+        }
+        const amountOfTimeToBake = 500 + toppings.length * 200;
+        // wait for pizza to cook
+        setTimeout(function () {
+          resolve(`Here is your pizza with the toppings ${toppings.join(', ')}`);
+        }, amountOfTimeToBake);
+      });
+    }
+
+    // 1st
+    /*
+    makePizza(['pepperoni'])
+      .then(function (pizza) {
+        console.log(pizza);
+        return makePizza(['ham', 'pineapple']);
+      })
+      .then(function (pizza) {
+        console.log(pizza);
+        return makePizza(['chicken', 'ricotta', 'bacon', 'honey', 'red pepper']);
+      })
+      .then(function (pizza) {
+        console.log(pizza);
+        return makePizza(['extra cheese']);
+      })
+      .then((pizza) => {
+        console.log('All done! Here is your last pizza');
+        console.log(pizza);
+      })
+      .catch(handleError);
+    console.log('Right After');
+    */
+
+    // run concurrently
+    /*
+    const pizzaPromise1 = makePizza(['pepperoni']);
+    const pizzaPromise2 = makePizza([
+      'chicken',
+      'ricotta',
+      'ham',
+      'honey',
+      'red pepper',
+    ]);
+    const pizzaPromise3 = makePizza(['ham', 'pineapple']);
+
+    const dinnerPromise = Promise.all([
+      pizzaPromise1,
+      pizzaPromise2,
+      pizzaPromise3,
+    ]);
+
+    dinnerPromise.then(function ([pep, godzza, hawaiian]) {
+      console.log(pep, godzza, hawaiian);
+    });
+
+    const firstPizzaPromise = Promise.race([
+      pizzaPromise1,
+      pizzaPromise2,
+      pizzaPromise3,
+    ]);
+
+    firstPizzaPromise.then((pizza) => {
+      console.log('You must be hungry! Here is the first pizza ready');
+      console.log(pizza);
+    });
+    */
+
+    /*
+    pizzaPromise1.then((pizza) => {
+      console.log(pizza);
+    });
+    pizzaPromise2.then((pizza) => {
+      console.log(pizza);
+    });
+    pizzaPromise3.then((pizza) => {
+      console.log(pizza);
+    });
+    */
+
+    function handleError(err) {
+      console.log('ohnoooo');
+      console.log(err);
+    }
+
+    makePizza(['cheese', 'pineapple'])
+      .then((pizza) => {
+        console.log(oizza);
+      })
+      .catch((err) => {
+        console.log('ohno');
+        console.log(err);
+      });
+
+    const p1 = makePizza(['pep']);
+    const p2 = makePizza(['pineapple']);
+
+    const dinnerPromise2 = Promise.all([p1, p2]).catch(handleError);
+
+    dinnerPromise2.then((results) => {
+      console.log(results);
+    });
+    // x
+  </script>
+</body>
+
+</html>
