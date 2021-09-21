@@ -1,4 +1,5 @@
-const endpoint = 'https://api.exchangeratesapi.io/latest';
+const endpoint = 'http://api.currencylayer.com/live';
+const accessKey = process.env.CURRENCY_API_KEY;
 const ratesByBase = {};
 
 export async function fetchRates(base = 'USD') {
