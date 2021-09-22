@@ -1,7 +1,6 @@
 {
   "name": "dadjokes",
   "version": "1.0.0",
-  "description": "",
   "main": "jokes.js",
   "directories": {
     "lib": "lib"
@@ -13,9 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.5"
   },
   "browserslist": [
     "last 1 chrome versions"
-  ]
+  ],
+  "description": ""
 }
