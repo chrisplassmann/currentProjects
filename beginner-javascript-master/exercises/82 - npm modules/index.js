@@ -1,8 +1,8 @@
-import wait from 'waait';
+import wait from './node_modules/waait';
 
 async function go() {
   console.log('Going!');
-  await wait(200);
+  // await wait(200);
   console.log('Ending!');
 }
 
