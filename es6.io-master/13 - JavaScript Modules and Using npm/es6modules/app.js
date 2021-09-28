@@ -1,2 +1,5 @@
-import {uniq} from './node_modules/lodash';
-import insane from './node_modules/insane';
+import { uniq } from 'lodash';
+import insane from 'insane';
+import jsonp from 'jsonp';
+
+const ages = [1,1,4,52,12,4];
