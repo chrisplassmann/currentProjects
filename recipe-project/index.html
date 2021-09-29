@@ -6,9 +6,24 @@
   <title>Recipe Project</title>
   <link rel="stylesheet" href="base.css">
   <style>
-    .show {
+    .saved {
+      background: var(--ltan);
       display: grid;
       grid-template-columns: 1fr;
+    }
+
+    .display {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .closebutton {
+      color: var(--red);
+      background: var(--tan);
+    }
+
+    .viewbutton {
+      background: var(--green);
     }
 
     .search {
@@ -20,13 +35,20 @@
       opacity: 0.2;
     }
 
+    .specific {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-gap: 20px;
+    }
+
     .recipes {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       grid-gap: 20px;
     }
 
     .recipe {
+      background: var(--ltan);
       border: 1px solid rgba(0, 0, 0, 0.1);
       padding: 20px;
     }
@@ -41,6 +63,9 @@
     </form>
   </div>
 
+  <div class="disbut">
+    <div class="specific"></div>
+  </div>
 
   <div class="wrapper">
     <form class="search" autocomplete="off">

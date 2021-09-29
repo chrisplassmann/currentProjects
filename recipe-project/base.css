@@ -14,6 +14,7 @@ html {
   --green: #278015;
   --brown: #75480d;
   --tan: #ecc99c;
+  --ltan: #faeddc;
   --text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
   --box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
   font-size: 62.5%;
@@ -75,7 +76,7 @@ a {
 
 
 a.button, button, input[type="button"] {
-  color: var(--tan);
+  color: white;
   background: var(--brown);
   padding: 1rem;
   border: 0;
