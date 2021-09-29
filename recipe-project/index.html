@@ -22,6 +22,19 @@
       grid-template-columns: 1fr;
     }
 
+    .title3 {
+      color: black;
+      background: var(--tan);
+      font-size: 50px;
+      display: flex;
+      align-items: center;
+      /* grid-template-columns: 1fr; */
+    }
+
+    .title3>h2 {
+      color: var(--red)
+    }
+
     .saved {
       background: var(--ltan);
       display: grid;
@@ -89,11 +102,12 @@
     <div class="saved"></div>
   </div>
 
-  <div class="disbut">
+  <div class="disbut" id="recipespecific">
     <h2 class="title2" style="text-align: center;">Instructions</h2>
     <form class="middle">
       <button name="hide" type="submit">Hide</button>
     </form>
+    <h2 class="title3" style="text-align: center;"></h2>
     <div class="specific"></div>
     <div class="instructional">
     </div>
