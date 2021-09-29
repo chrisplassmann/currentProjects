@@ -1,8 +1,9 @@
 // recipe API script
 const baseEndpoint = 'https://api.spoonacular.com/recipes/';
+const imageEndpoint = 'https://spoonacular.com/cdn/ingredients_100x100/'
 // const accessKey = '241b2bb4983e4d86a384c68ae45c82cf';
 // const accessKey = '3862ad42ea3a482d99d254cd1001bc04';
-const accessKey = '19bce0a4f7e1c943f40b9af098b236360ea389d3';
+const accessKey = 'f891b877aa554799b7903f072ce87e6c';
 
 const rSearch = 'complexSearch';
 const rInfo = 'information';
@@ -14,7 +15,10 @@ let items = [];
 const recipesSaved = document.querySelector('.saved');
 const list = document.querySelector('.display');
 
+const hideIng = document.querySelector('.middle');
 const recipeSpec = document.querySelector('.specific');
+const recipeHead = document.querySelector('.title2');
+const recipeInst = document.querySelector('.instructional');
 
 const form = document.querySelector('form.search');
 const recipesGrid = document.querySelector('.recipes');
@@ -75,7 +79,7 @@ async function fetchRecipes(query) {
         const imageItem = document.createElement("img")
         imageItem.setAttribute("src", recipe.image)
         imageItem.setAttribute("alt", recipe.title)
-        imageItem.setAttribute("width", "260")
+        imageItem.setAttribute("width", "420")
         divItem.appendChild(imageItem)
       }
 
@@ -109,28 +113,38 @@ async function fetchRecipes(query) {
     recipeIng.forEach((item) => {
 
       const divItem = document.createElement("div")
-      divItem.setAttribute("class", "recipes")
+      divItem.setAttribute("class", "recipe")
 
       const spanItem = document.createElement("span")
       spanItem.setAttribute("class", "itemName")
-      spanItem.textContent = item.name
+      spanItem.textContent = item.original
 
       if(item.image){
         const imageItem = document.createElement("img")
-        imageItem.setAttribute("src", recipe.image)
-        imageItem.setAttribute("alt", recipe.title)
-        imageItem.setAttribute("width", "100")
+        imageItem.setAttribute("src", `${imageEndpoint}${item.image}`)
+        imageItem.setAttribute("alt", item.name)
+        imageItem.setAttribute("width", "180")
+        imageItem.setAttribute("height", "200")
         divItem.appendChild(imageItem)
       }
-
-
-
 
       divItem.appendChild(spanItem)
 
 
       recipeSpec.appendChild(divItem)
     })
+
+
+    const spanInstruct = document.createElement("span")
+    spanInstruct.setAttribute("class", "recipeInstructions")
+    spanInstruct.textContent = recipeSpecific.instructions
+
+    recipeInst.appendChild(spanInstruct)
+  }
+
+
+  async function hideIngredients() {
+    recipeSpec.innerHTML = "";
   }
 
 
@@ -282,6 +296,7 @@ function displayItems() {
   list.addEventListener('itemsUpdated', displayItems);
   list.addEventListener('itemsUpdated', mirrorToLocalStorage);
 
+  hideIng.addEventListener('submit', hideIngredients);
   form.addEventListener('submit', handleSubmit);
   // recipesAdd.addEventListener('submit', handleAddFav);
 

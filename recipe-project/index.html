@@ -6,6 +6,22 @@
   <title>Recipe Project</title>
   <link rel="stylesheet" href="base.css">
   <style>
+    .title {
+      color: black;
+      background: var(--tan);
+      font-size: 50px;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .title2 {
+      color: black;
+      background: var(--tan);
+      font-size: 50px;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
     .saved {
       background: var(--ltan);
       display: grid;
@@ -13,6 +29,11 @@
     }
 
     .display {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .middle {
       display: grid;
       grid-template-columns: 1fr;
     }
@@ -35,20 +56,24 @@
       opacity: 0.2;
     }
 
+    .instructional {
+      font-size: 30px;
+    }
+
     .specific {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       grid-gap: 20px;
     }
 
     .recipes {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
       grid-gap: 20px;
     }
 
     .recipe {
-      background: var(--ltan);
+      background: white;
       border: 1px solid rgba(0, 0, 0, 0.1);
       padding: 20px;
     }
@@ -57,17 +82,25 @@
 
 <body>
   <div class="disbut">
-    <div class="saved"></div>
+    <h2 class="title" style="text-align: center;">Favorites!</h2>
     <form class="display">
-      <button name="show" type="submit">Show</button>
+      <button name="show" type="submit">Refresh List</button>
     </form>
+    <div class="saved"></div>
   </div>
 
   <div class="disbut">
+    <h2 class="title2" style="text-align: center;">Instructions</h2>
+    <form class="middle">
+      <button name="hide" type="submit">Hide</button>
+    </form>
     <div class="specific"></div>
+    <div class="instructional">
+    </div>
   </div>
 
   <div class="wrapper">
+    <h2 class="title2" style="text-align: center;">Recipe Search</h2>
     <form class="search" autocomplete="off">
       <input type="text" name="query">
       <button name="submit" type="submit">Submit</button>
