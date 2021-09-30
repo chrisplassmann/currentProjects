@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Recipe API With Bootstrap</title>
+
+</head>
+
+<body>
+  <main role="main" class="container">
+
+    <div class="container" id="toparea">
+      <!-- heading - Favorites -->
+      <h1 id="toptitle">Favorites!</h1>
+      <!-- form with submit button -->
+      <form id="toprefresh">
+        <button type="submit" class="btn btn-primary" id="refreshbutton">Refresh</button>
+      </form>
+      <!-- div for saved recipes -->
+      <div class="container" id="toplist"></div>
+    </div>
+
+    <div class="container" id="midarea">
+      <!-- heading - instructions-->
+      <h1 id="midtitle">Instructions</h1>
+      <!-- form with hide button-->
+      <form id="midsubmit">
+        <button type="submit" class="btn btn-primary" id="hidebutton">Hide</button>
+      </form>
+      <!-- heading - recipe title-->
+      <h2 id="midname"></h2>
+      <!-- div for ingredients-->
+      <div class="container" id="miding"></div>
+      <!-- div for instructions-->
+      <div class="container" id="midinst"></div>
+    </div>
+
+    <div class="container" id="botarea">
+      <!-- heading - recipe search-->
+      <h1 id="bottitle">Recipe Search</h1>
+      <!-- form with submit button-->
+      <form id="botsubmit">
+        <div class="form-group">
+          <input type="query" class="form-control" id="botsearch" placeholder="What are you looking for?">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <!-- recipes grid-->
+      <div class="container">
+        <div class="row" id="botrow">
+          <div class="col-sm" id="botrecipes"></div>
+        </div>
+      </div>
+    </div>
+
+  </main><!-- /.container -->
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="./scripts_bootstrap.js"></script>
+</body>
+
+</html>
+
+<!---
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recipe Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="base.css">
+  <style>
+    .title {
+      color: black;
+      background: var(--tan);
+      font-size: 50px;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .title2 {
+      color: black;
+      background: var(--tan);
+      font-size: 50px;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .title3 {
+      color: black;
+      background: var(--tan);
+      font-size: 50px;
+      display: flex;
+      align-items: center;
+      /* grid-template-columns: 1fr; */
+    }
+
+    .title3>h2 {
+      color: var(--red)
+    }
+
+    .saved {
+      background: var(--ltan);
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .display {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .middle {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .closebutton {
+      color: var(--red);
+      background: var(--tan);
+    }
+
+    .viewbutton {
+      background: var(--green);
+    }
+
+    .search {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    button[disabled] {
+      opacity: 0.2;
+    }
+
+    .instructional {
+      font-size: 30px;
+    }
+
+    .specific {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .recipes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .recipe {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="disbut">
+    <h2 class="title" style="text-align: center;">Favorites!</h2>
+    <form class="display">
+      <button name="show" type="submit">Refresh List</button>
+    </form>
+    <div class="saved"></div>
+  </div>
+
+  <div class="disbut" id="recipespecific">
+    <h2 class="title2" style="text-align: center;">Instructions</h2>
+    <form class="middle">
+      <button name="hide" type="submit">Hide</button>
+    </form>
+    <h2 class="title3" style="text-align: center;"></h2>
+    <div class="specific"></div>
+    <div class="instructional">
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <h2 class="title2" style="text-align: center;">Recipe Search</h2>
+    <form class="search" autocomplete="off">
+      <input type="text" name="query">
+      <button name="submit" type="submit">Submit</button>
+    </form>
+    <div class="recipes"></div>
+  </div>
+
+  <script src="./scripts.js"></script>
+</body>
+
+</html>
+
+-->

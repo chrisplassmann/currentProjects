@@ -15,18 +15,18 @@ const initQuery = 'pizza';
 let items = [];
 
 // top box
-const recipesSaved = document.querySelector('.saved');
-const list = document.querySelector('.display');
+const list = document.getElementById('toprefresh');
+const recipesSaved = document.getElementById('toplist');
 
 // mid box
-const hideIng = document.querySelector('.middle');
-const recipeTitle = document.querySelector('.title3');
-const recipeSpec = document.querySelector('.specific');
-const recipeInst = document.querySelector('.instructional');
+const hideIng = document.getElementById('midsubmit');
+const recipeTitle = document.getElementById('midname');
+const recipeSpec = document.querySelector('miding');
+const recipeInst = document.querySelector('midinst');
 
 // bottom box
-const form = document.querySelector('form.search');
-const recipesGrid = document.querySelector('.recipes');
+const form = document.getElementById('botsubmit');
+const recipesGrid = document.getElementById('botrecipes');
 
 
 
