@@ -5,56 +5,68 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
   <title>Recipe API With Bootstrap</title>
 
 </head>
 
-<body>
-  <main role="main" class="container">
-
-    <div class="container" id="toparea">
+<body class="bg-dark">
+  <main role="main">
+    <br>
+    <div class="container bg-success" id="toparea">
       <!-- heading - Favorites -->
-      <h1 id="toptitle">Favorites!</h1>
+      <h1 class="text-black text-center p-3" id="toptitle">Favorites!</h1>
       <!-- form with submit button -->
-      <form id="toprefresh">
-        <button type="submit" class="btn btn-primary" id="refreshbutton">Refresh</button>
+      <form id="toprefresh" class="row">
+        <button type="submit" class="btn btn-warning" id="refreshbutton">Refresh</button>
       </form>
+      <br>
       <!-- div for saved recipes -->
       <div class="container" id="toplist"></div>
+      <br>
     </div>
-
-    <div class="container" id="midarea">
+    <br>
+    <div class="container bg-success" id="midarea">
       <!-- heading - instructions-->
-      <h1 id="midtitle">Instructions</h1>
+      <h1 class="text-black text-center p-3" id="midtitle">Instructions</h1>
       <!-- form with hide button-->
-      <form id="midsubmit">
-        <button type="submit" class="btn btn-primary" id="hidebutton">Hide</button>
+      <form id="midsubmit" class="row">
+        <button type="submit" class="btn btn-info" id="hidebutton">Hide</button>
       </form>
+      <br>
       <!-- heading - recipe title-->
-      <h2 id="midname"></h2>
+      <h2 class="text-black text-center p-3" id="midname"></h2>
       <!-- div for ingredients-->
-      <div class="container" id="miding"></div>
+      <div class="row row-sm text-center" id="miding"></div>
+      <br>
       <!-- div for instructions-->
-      <div class="container" id="midinst"></div>
+      <div class="container bg-light h4" id="midinst"></div>
+      <br>
     </div>
-
-    <div class="container" id="botarea">
+    <br>
+    <div class="container bg-success" id="botarea">
       <!-- heading - recipe search-->
-      <h1 id="bottitle">Recipe Search</h1>
+      <h1 class="text-black text-center p-3" id="bottitle">Recipe Search</h1>
       <!-- form with submit button-->
-      <form id="botsubmit">
-        <div class="form-group">
-          <input type="query" class="form-control" id="botsearch" placeholder="What are you looking for?">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+      <form id="botsubmit" class="row">
+        <input type="query" name="query" class="form-control" id="botsearch" placeholder="What are you looking for?">
+        <button type="submit" class="btn btn-info">Submit</button>
       </form>
+      <br>
       <!-- recipes grid-->
       <div class="container">
-        <div class="row" id="botrow">
-          <div class="col-sm" id="botrecipes"></div>
+        <div class="row row-md" id="botrow">
         </div>
       </div>
+      <br>
     </div>
+    <br>
 
   </main><!-- /.container -->
 

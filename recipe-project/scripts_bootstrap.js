@@ -19,14 +19,14 @@ const list = document.getElementById('toprefresh');
 const recipesSaved = document.getElementById('toplist');
 
 // mid box
-const hideIng = document.getElementById('midsubmit');
+const hideIng = document.querySelector('#midsubmit');
 const recipeTitle = document.getElementById('midname');
-const recipeSpec = document.querySelector('miding');
-const recipeInst = document.querySelector('midinst');
+const recipeSpec = document.getElementById('miding');
+const recipeInst = document.getElementById('midinst');
 
 // bottom box
 const form = document.getElementById('botsubmit');
-const recipesGrid = document.getElementById('botrecipes');
+const recipesGrid = document.getElementById('botrow');
 
 
 
@@ -48,6 +48,7 @@ const recipesGrid = document.getElementById('botrecipes');
     console.log('submit click')
     event.preventDefault();
     const el = event.currentTarget;
+    console.log(form);
     console.log(form.query.value);
     fetchAndDisplay(form.query.value);
   }
@@ -73,23 +74,37 @@ const recipesGrid = document.getElementById('botrecipes');
     // clears the items before repopulating
     recipesGrid.innerHTML = "";
 
+    // count the number of items
+    console.log('recipes.length')
+    console.log(recipes)
+
     // displays each recipe
     recipes.forEach((recipe) => {
+
       // create the divItem
       const divItem = document.createElement("div")
-      divItem.setAttribute("class", "recipe")
+      divItem.setAttribute("class", "col-lg-6")
+
+      // create a second divItem
+      const div2Item = document.createElement("div");
+      div2Item.setAttribute("class", "card bg-dark shadow-sm")
 
       // create a header that holds the recipe name
       const h2Item = document.createElement("h2");
+      h2Item.setAttribute("class", "text-white")
       h2Item.textContent = recipe.title
 
       // create an element in the recipe that holds the ID
       const anchorItem = document.createElement("a")
       anchorItem.setAttribute("href", recipe.id)
       
+      // create a line break? xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      const lineBreak = document.createElement("br")
+
       // create a button to add the recipe to favorites
       const buttonItem = document.createElement("button")
       buttonItem.textContent = "Add to Favorites"
+      buttonItem.setAttribute("class", "btn btn-warning")
       buttonItem.setAttribute("data-title", recipe.title)
       buttonItem.setAttribute("data-id", recipe.id)
       buttonItem.addEventListener("click", (e) => handleStorageSubmit(e.target.dataset.title, e.target.dataset.id))
@@ -97,28 +112,36 @@ const recipesGrid = document.getElementById('botrecipes');
       // create a button to view the recipe
       const button2Item = document.createElement("button")
       button2Item.textContent = "View"
-      button2Item.setAttribute("class", "viewbutton")
+      button2Item.setAttribute("class", "btn btn-info")
       button2Item.setAttribute("data-title", recipe.title)
       button2Item.setAttribute("data-id", recipe.id)
       button2Item.addEventListener("click", (e) => displaySpecific(e.target.dataset.id))
       
-      divItem.appendChild(h2Item)
+      div2Item.appendChild(lineBreak)
+      div2Item.appendChild(h2Item)
+      divItem.appendChild(div2Item)
       
       // check if image exists, then add it
       if(recipe.image){
         const imageItem = document.createElement("img")
         imageItem.setAttribute("src", recipe.image)
         imageItem.setAttribute("alt", recipe.title)
-        imageItem.setAttribute("width", "420")
-        divItem.appendChild(imageItem)
+        imageItem.setAttribute("class", "img-fluid ")
+        div2Item.appendChild(imageItem)
       }
 
       // add the recipe info to the text
-      divItem.appendChild(anchorItem)
-      divItem.appendChild(buttonItem)
-      divItem.appendChild(button2Item)
+      div2Item.appendChild(lineBreak)
+      div2Item.appendChild(anchorItem)
+      div2Item.appendChild(buttonItem)
+      div2Item.appendChild(button2Item)
+      
+      // count the number of items
+      console.log('this location')
+      console.log(recipes.indexOf(recipe))
 
       // add all the info to the div
+      divItem.appendChild(lineBreak)
       recipesGrid.appendChild(divItem)
     })
   }
@@ -176,7 +199,14 @@ const recipesGrid = document.getElementById('botrecipes');
 
       // create the divItem 
       const divItem = document.createElement("div")
-      divItem.setAttribute("class", "recipe")
+      divItem.setAttribute("class", "col-sm-4")
+      
+      // create a line break? xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      const lineBreak = document.createElement("br")
+
+      // create a second divItem
+      const div2Item = document.createElement("div");
+      div2Item.setAttribute("class", "card bg-light shadow-sm")
 
       // create a span that holds the ingredient name
       const spanItem = document.createElement("span")
@@ -188,15 +218,18 @@ const recipesGrid = document.getElementById('botrecipes');
         const imageItem = document.createElement("img")
         imageItem.setAttribute("src", `${imageEndpoint}${item.image}`)
         imageItem.setAttribute("alt", item.name)
+        imageItem.setAttribute("class", "mx-auto")
         imageItem.setAttribute("width", "180")
         imageItem.setAttribute("height", "200")
 
-        divItem.appendChild(imageItem)
+        div2Item.appendChild(imageItem)
       }
       // add the ingredient name
-      divItem.appendChild(spanItem)
+      div2Item.appendChild(spanItem)
 
       // add all the info to the div
+      divItem.appendChild(div2Item)
+      divItem.appendChild(lineBreak)
       recipeSpec.appendChild(divItem)
     })
 
@@ -263,7 +296,11 @@ const recipesGrid = document.getElementById('botrecipes');
     items.forEach((item) => {
       // create the divItem
       const divItem = document.createElement("div")
-      divItem.setAttribute("class", "item")
+      divItem.setAttribute("class", "row-md-10")
+      
+      // create a second divItem
+      const div2Item = document.createElement("div");
+      div2Item.setAttribute("class", "bg-light")
       
       // create a span that holds the item name
       const spanItem = document.createElement("span")
@@ -278,7 +315,7 @@ const recipesGrid = document.getElementById('botrecipes');
       // create a button to remove the item from favorites
       const buttonItem = document.createElement("button")
       buttonItem.textContent = "x"
-      buttonItem.setAttribute("class", "closebutton")
+      buttonItem.setAttribute("class", "btn btn-danger")
       buttonItem.setAttribute("data-name", item.name)
       buttonItem.setAttribute("data-id", item.id)
       buttonItem.addEventListener("click", (e) => deleteItem(item.id))
@@ -286,14 +323,14 @@ const recipesGrid = document.getElementById('botrecipes');
       // create a button to view the recipe for the item
       const button2Item = document.createElement("button")
       button2Item.textContent = "View"
-      button2Item.setAttribute("class", "viewbutton")
+      button2Item.setAttribute("class", "btn btn-info")
       button2Item.setAttribute("data-name", item.name)
       button2Item.setAttribute("data-id", item.id)
       button2Item.addEventListener("click", (e) => displaySpecific(item.id))
       
       // add both buttons
-      divItem.appendChild(buttonItem)
-      divItem.appendChild(button2Item)
+      div2Item.appendChild(buttonItem)
+      div2Item.appendChild(button2Item)
       
       // check if image exists, then add it
       if(item.image){
@@ -302,13 +339,14 @@ const recipesGrid = document.getElementById('botrecipes');
         imageItem.setAttribute("alt", item.name)
         imageItem.setAttribute("height", "50")
 
-        divItem.appendChild(imageItem)
+        div2Item.appendChild(imageItem)
       }
       // add the item name text
-      divItem.appendChild(spanItemS)
-      divItem.appendChild(spanItem)
+      div2Item.appendChild(spanItemS)
+      div2Item.appendChild(spanItem)
       
       // add all the info to the div
+      divItem.appendChild(div2Item)
       recipesSaved.appendChild(divItem)
     })
   }
